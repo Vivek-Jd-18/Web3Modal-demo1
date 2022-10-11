@@ -15,6 +15,7 @@ export default function Wallet(props) {
             walletconnect: {
                 package: WalletConnectProvider,
                 options: {
+                    //infura id from infura
                     infuraId: "1d7e74b59fa34414bc4401a9b164e20c",
                 }
             },
