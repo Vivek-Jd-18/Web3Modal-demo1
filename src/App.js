@@ -1,12 +1,12 @@
 import './App.css';
-import Wallet from './components/Wallet';
+import Dao from './components/Dao';
+
 function App() {
   return (
     <div className="App">
-      <h1 className="text-center">Hello</h1>
-      <div>
-        <Wallet/>
-      </div>
+      <header className="App-header">
+      <Dao/>
+      </header>
     </div>
   );
 }
