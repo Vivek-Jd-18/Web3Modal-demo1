@@ -1,11 +1,11 @@
 import './App.css';
-import Dao from './components/Dao';
+import Web3ModalComponent from './components/Web3ModalComponent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Dao/>
+      <Web3ModalComponent/>
       </header>
     </div>
   );

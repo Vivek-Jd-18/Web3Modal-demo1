@@ -1,15 +1,15 @@
 import React from "react";
-import Button from "./Button";
 import Web3Modal from "web3modal";
 import { useRef, useEffect, useState } from "react";
 import { providers } from "ethers";
 import { providerOptions } from "../utils/providerOptions"
+import { infuraId, chainid } from "../utils/Attributes"
 import { ethers } from "ethers";
 import WalletConnect from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 
 
-export default function Dao() {
+export default function Web3ModalComponent() {
   const [accountAddress, setAccountAddress] = useState();
 
   const providerOptions = {
@@ -17,7 +17,7 @@ export default function Dao() {
       package: CoinbaseWalletSDK, // Required
       options: {
         appName: "Web 3 Modal Demo", // Required
-        infuraId: process.env.INFURA_KEY // Required unless you provide a JSON RPC url; see `rpc` below
+        infuraId: infuraId // Required unless you provide a JSON RPC url; see `rpc` below
       }
     },
     binancechainwallet: {
@@ -28,7 +28,7 @@ export default function Dao() {
       options: {
         rpc: {
           rpc: "https://matic-mumbai.chainstacklabs.com/",
-          chainId: 5,
+          chainId: chainid,
           darkMode: false
         },
       }
@@ -37,7 +37,7 @@ export default function Dao() {
       package: CoinbaseWalletSDK,
       options: {
         rpc: "https://matic-mumbai.chainstacklabs.com/",
-        chainId: 80001,
+        chainId: chainid,
         darkMode: false
       }
     }
@@ -47,11 +47,11 @@ export default function Dao() {
     const web3Modal = new Web3Modal({
 
       theme: {
-        background: "rgb(130, 130, 156)",
-        main: "red",
-        secondary: "red",
-        border: "rgba(255,   195, 195, 0.14)",
-        hover: "rgb(116, 26, 32)",
+        background: "RGB(150 197 244)",
+        main: "gray",
+        secondary: "RGB(39 41 42)",
+        border: "RGB(74 119 164)",
+        hover: "RGB(35 72 109)",
       },
       cacheProvider: true,
       providerOptions,
@@ -87,13 +87,9 @@ export default function Dao() {
 
   return (
     <div className="text-center mt-8">
-      <Button
-        text="Connect To Wallet"
-        onClick={walletConnect}
-      />
-      <button onClick={walletConnect} >click</button>
+      <button onClick={walletConnect} >CONNECT</button>
       <h4>{accountAddress}</h4>
-      <button onClick={disconnectWallet}> Close</button>
+      <button onClick={disconnectWallet}>DISCONNECT</button>
     </div>
   );
 }
